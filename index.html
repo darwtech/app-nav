@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+
+    <style>
+        body {
+            background-color: #f3f4f6;
+        }
+    </style>
+    <title>Alquiler</title>
+</head>
+<body>
+    <div id="app">
+        <nav class="bg-white border-b border-gray-300">
+            <div class="flex justify-between items-center px-9">
+                <button id="menuBtn">
+                    <i class="fas fa-bars text-cyan-500 text-lg"></i>
+                </button>
+                <div class="ml-1">
+                    <img src="asset/img/1nv.png" alt="logo" class="h-12 w-12">
+                </div>
+                <div class="space-x-4">
+                    <button>
+                        <i class="fas fa-bell text-cyan-500 text-lg"></i>
+                    </button>
+                    <button>
+                        <i class="fas fa-user text-cyan-500 text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <div id="sideNav" class="lg:block hidden bg-white w-64 h-screen fixed rounded-none border-none">
+            <div class="p-4 space-y-4">
+                <a href="#" aria-label="dashboard" id="inicio"
+                    class="menu-item relative px-4 py-3 flex items-center space-x-4 rounded-lg text-white bg-gradient-to-r from-sky-600 to-cyan-400">
+                    <i class="fas fa-home text-cyan-500 "></i>
+                    <span class="-mr-1 font-medium">Dashboard</span>
+                </a>
+                <a href="#" id="socio" class="menu-item px-4 py-3 flex items-center space-x-4 rounded-md text-gray-500 group">
+                    <i class="fas fa-user text-cyan-500 text-lg"></i>
+                    <span>Socio</span>
+                </a>
+                <a href="#" id="barco" class="menu-item px-4 py-3 flex items-center space-x-4 rounded-md text-gray-500 group">
+                    <i class="fas fa-ship"></i>
+                    <span>Barcos</span>
+                </a>
+                <a href="#" id="miCuenta" class="menu-item px-4 py-3 flex items-center space-x-4 rounded-md text-gray-500 group">
+                    <i class="fas fa-user"></i>
+                    <span>Alquiler</span>
+                </a>
+                <a href="#" id="cerrarSesion" class="menu-item px-4 py-3 flex items-center space-x-4 rounded-md text-gray-500 group">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Cerrar sesión</span>
+                </a>
+            </div>
+        </div>
+
+        <div id="dashboardContainer" class=""></div>
+        <div id="socioFormContainer" class="hidden"></div>
+        <div id="barcoFormContainer" class="hidden"></div>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+
+</body>
+</html>

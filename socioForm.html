@@ -1,0 +1,97 @@
+<div class="lg:ml-80 lg:pl-4 lg:flex lg:flex-col lg:w-3/4 mt-5 mx-2 pb-8">
+    <div class="lg:flex gap-4 items-stretch">
+        <div class="bg-white p-4 rounded-lg xs:mb-4 max-w-full shadow-md lg:w-[100%]">
+            <div class="bg-white rounded-full border-none p-3 mb-4 shadow-md">
+                <div class="flex items-center">
+                    <i class="px-3 fas fa-search ml-1"></i>
+                    <input id="searchInput" type="text" placeholder="Buscar..." class="ml-3 focus:outline-none w-full rounded-xl border-gray-100">
+                </div>
+            </div>
+            <div class="flex justify-end mb-4 items-center">
+                <button id="agregarSocioBtn" type="button" class="bg-green-500 text-white px-4 py-2 rounded-md shadow-md flex items-center gap-2" data-modal-target="agregar-modal">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5">
+                        <path fill-rule="evenodd" d="M2 5a1 1 0 011-1h14a1 1 0 110 2H3a1 1 0 01-1-1zm0 5a1 1 0 011-1h14a1 1 0 110 2H3a1 1 0 01-1-1zm0 5a1 1 0 011-1h9a1 1 0 110 2H3a1 1 0 01-1-1z" clip-rule="evenodd" />
+                    </svg>
+                    <span>Agregar Socio</span>
+                </button>
+            </div>
+            <div class="flex justify-center">
+                <table class="w-full max-w-full border-collapse bg-white text-left text-sm text-gray-500">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th scope="col" class="px-6 py-4 font-medium text-gray-900">Cédula</th>
+                            <th scope="col" class="px-6 py-4 font-medium text-gray-900">Nombres</th>
+                            <th scope="col" class="px-6 py-4 font-medium text-gray-900">Apellidos</th>
+                            <th scope="col" class="px-6 py-4 font-medium text-gray-900">Edad</th>
+                            <th scope="col" class="px-6 py-4 font-medium text-gray-900">Sexo</th>
+                            <th scope="col" class="px-6 py-4 font-medium text-gray-900">Estado Civil</th>
+                            <th scope="col" class="px-6 py-4 font-medium text-gray-900"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="socioTableBody" class="divide-y divide-gray-100 border-t border-gray-100">
+                        <!-- Datos de socios se cargarán aquí -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para agregar socio -->
+<section id="modal-formulario"> 
+<div id="agregar-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <div class="relative p-4 w-full max-w-md max-h-full">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <!-- Modal header -->
+            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                    Agregar Nuevo Socio
+                </h3>
+               
+            </div>
+            <!-- Modal body -->
+            <form class="p-4 md:p-5" id="socioForm">
+                <div class="grid gap-4 mb-4 grid-cols-2">
+                    <div class="col-span-2">
+                        <label for="cedula" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Cédula</label>
+                        <input type="text" name="cedula" id="cedula" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Ingrese cédula" required>
+                    </div>
+                    <div class="col-span-2">
+                        <label for="nombres" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombres</label>
+                        <input type="text" name="nombres" id="nombres" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Ingrese nombres" required>
+                    </div>
+                    <div class="col-span-2">
+                        <label for="apellidos" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Apellidos</label>
+                        <input type="text" name="apellidos" id="apellidos" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Ingrese apellidos" required>
+                    </div>
+                    <div class="col-span-2">
+                        <label for="fechaNacimiento" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fecha de Nacimiento</label>
+                        <input type="date" name="fechaNacimiento" id="fechaNacimiento" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" required>
+                    </div>
+                    <div class="col-span-2 sm:col-span-1">
+                        <label for="sexo" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sexo</label>
+                        <select id="sexo" name="sexo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" required>
+                            <option value="" disabled selected>Seleccione sexo</option>
+                            <option value="M">Masculino</option>
+                            <option value="F">Femenino</option>
+                        </select>
+                    </div>
+                    <div class="col-span-2 sm:col-span-1">
+                        <label for="estadoCivil" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Estado Civil</label>
+                        <select id="estadoCivil" name="estadoCivil" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" required>
+                            <option value="" disabled selected>Seleccione estado civil</option>
+                            <option value="Soltero">Soltero</option>
+                            <option value="Casado">Casado</option>
+                            <option value="Divorciado">Divorciado</option>
+                            <option value="Viudo">Viudo</option>
+                        </select>
+                    </div>
+                </div>
+                <button id="btnguardarBarco"
+                class="text-white bg-green-500 hover:bg-blue-800 w-2/6 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Agregar</button>
+            </form>
+        </div>
+    </div>
+</div>
+</section>
